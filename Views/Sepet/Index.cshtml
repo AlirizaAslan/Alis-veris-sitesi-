@@ -1,0 +1,103 @@
+﻿@model DBMS.ViewModels.SepetViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mb-3">Sepetim</h2>
+
+<table class="table table-light">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Kategori</th>
+        <th>Renk</th>
+        <th>Beden</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model.Sepettekiler)
+    {
+        <tr>
+
+            <td>@item.Urun.Ad</td>
+            <td>@item.Urun.Kategori</td>
+            <td>@item.Renk</td>
+            <td>@item.Beden</td>
+            <td>@item.Miktar</td>
+            <td>@item.Urun.Fiyat</td>
+            <td>
+                <span class="btn-group">
+                    <a class="btn btn-dark" href="/Sepet/Azalt/@item.SepetID">Azalt</a>
+                    <a class="btn btn-dark" href="/Sepet/Artir/@item.SepetID">Artır</a>
+
+                </span>
+
+            </td>
+            <td><a class="btn btn-danger" href="/Sepet/Sil/@item.SepetID">Sil</a></td>
+
+        </tr>
+    }
+</table>
+<br />
+<br />
+<table class="table table-dark">
+    <tr>
+        <th>Toplam Tutar</th>
+        <th>İndirimli Ödenecek Tutar</th>
+    </tr>
+    <tr>
+        <td>@ViewData["ToplamTutar"]</td>
+        <td>@ViewData["IndirimliToplamTutar"]</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm("SiparisVer", "Siparis", FormMethod.Post))
+{
+    <div class="form-group mt-2 mb-3 ">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="mt-2">
+
+
+                    <div class="form-group mb-5 mt-2">
+                        <h4>KrediKartı</h4>
+                        @Html.DropDownList("KrediKartiNo", new SelectList(Model.KrediKartlari, "KrediKarti1", "KrediKarti1"), new { @class = "form-control" })
+
+                    </div>
+                    <h4>Teslimat Adresi</h4>
+                    <div class="form-check">
+
+
+                        @foreach (var item in Model.Adresler)
+                        {
+                            <label class="my-1">
+                                <input class="form-check-input" type="radio" name="id" value="@item.AdresID" checked />@item.Sehir @item.Ilce @item.Cadde_Sokak No: @item.Numara.ToString()
+                            </label>
+                        }
+
+
+                    </div>
+                    <div class="form-group mb-5 mt-2">
+                        <h4>Email</h4>
+                        @Html.DropDownList("IletisimMaili", new SelectList(Model.Emailler, "Email1", "Email1"), new { @class = "form-control" })
+
+                    </div>
+                    <input style="display:none" type="text" name="ToplamTutar" value="@ViewData["ToplamTutar"]" />
+                    <input style="display:none" type="text" name="İndirimliOdenenTutar" value="@ViewData["IndirimliToplamTutar"]" />
+                    <button class="btn btn-info my-3">Sipariş Ver</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+
+
+

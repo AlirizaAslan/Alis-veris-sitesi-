@@ -1,0 +1,33 @@
+﻿@model Kullanici
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+@using (Html.BeginForm("GuncellePost","Kullanici",FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m =>m.Ad)
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Soyad)
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Sifre)
+        @Html.TextBoxFor(m => m.Sifre, new { @class = "form-control" })
+
+    </div>
+   
+    <br />
+    @Html.HiddenFor(m=>m.KullaniciID)
+    <button type="submit"  class="btn btn-warning">Güncelle</button>
+
+
+
+}
+

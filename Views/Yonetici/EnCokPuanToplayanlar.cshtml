@@ -1,0 +1,36 @@
+﻿@model List<Musteri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_YoneticiLayout.cshtml";
+}
+
+
+<main role="main">
+
+
+	<table class="table table-dark">
+		<tr>
+			<th>Ad</th>
+			<th>Soyad</th>
+			<th>Puan</th>
+		</tr>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Kullanici.Ad</td>
+				<td>@item.Kullanici.Soyad</td>
+				<td>@item.Puan</td>
+			</tr>
+		}
+
+	</table>
+
+
+
+</main>
+
+
+
+
+
+

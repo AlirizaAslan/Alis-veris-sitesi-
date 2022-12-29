@@ -1,0 +1,15 @@
+﻿@model FisUrun
+@{
+    ViewBag.Title = "YorumGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Güncelle</h2>
+
+<form action="YorumGuncelle" method="post">
+    <label>Yorum</label>
+    <input class="form-control" name="yorum"  value="@Model.Yorum"></input>
+    <input style="display:none" type="text" name="id" value="@Model.FisUrunID" />
+    <br />
+    <button class="btn btn-success">Gönder</button>
+</form>

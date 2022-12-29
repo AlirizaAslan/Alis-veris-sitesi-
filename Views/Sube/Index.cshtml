@@ -1,0 +1,64 @@
+﻿@model List<Sube>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Şubelerimiz</h2>
+@using (Html.BeginForm("Arama", "Sube", FormMethod.Post))
+{
+    <div class="form-group mt-2 mb-3 ">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="mt-2">
+                    <label>
+                        <input type="radio" name="tercih" value="1" checked />Şehir İle Arama
+                    </label>
+
+
+                    <label class="ms-4">
+                        <input type="radio" name="tercih" value="2" />Cadde/Sokak İle Arama
+                    </label>
+                    <label class="ms-4">
+                        <input type="radio" name="tercih" value="3" />Posta Kodu İle Arama
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <input class="form-control" type="text" name="m" />
+
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success">Ara</button>
+            </div>
+
+
+        </div>
+        <br />
+        <a class="btn btn-warning" href="/Sube/Index">Tümü</a>
+    </div>
+
+
+
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Şehir</th>
+        <th>İlçe</th>
+        <th>Cadde/Sokak</th>
+        <th>Posta Kodu</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Sehir</td>
+            <td>@item.Ilce</td>
+            <td>@item.Cadde_Sokak</td>
+            <td>@item.PostaKodu</td>
+        </tr>
+
+    }
+</table>
+
+

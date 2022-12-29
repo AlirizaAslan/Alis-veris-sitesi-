@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d2b07d938a11488dbf0a48a9a609a9ae" Name="Diagram1">
+        <EntityTypeShape EntityType="DataModel.Adres" Width="1.5" PointX="8.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Beden" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Email" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Favoriler" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Fis" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.FisUrun" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.KrediKarti" Width="1.5" PointX="8.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Kullanici" Width="1.5" PointX="3.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Musteri" Width="1.5" PointX="6" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Renk" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Sepet" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Sube" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.Urun" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.UrunDetay" Width="1.5" PointX="3" PointY="23.25" IsExpanded="true" />
+        <AssociationConnector Association="DataModel.FK_Adres_Musteri" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Beden_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Email_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Favoriler_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Favoriler_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Fis_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_FisUrun_Fis" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_FisUrun_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_KrediKarti_Musteri" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Musteri_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Sepet_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Renk_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_Sepet_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="DataModel.FK_UrunDetay_Urun" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

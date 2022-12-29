@@ -1,0 +1,56 @@
+﻿@model List<Favoriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Favorilerim</h2>
+
+<main role="main">
+
+
+
+
+
+
+
+    <div class="album py-5 bg-light pt-3" id="tbl">
+        <div class="container">
+            @if (Model.Count() == 0)
+            {
+                <h5>Ürün Bulunmamaktadır.</h5>
+            }
+
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm">
+
+                            <a href="/Urun/UrunGoruntule/@item.Urun.Renk"><img src="@item.Urun.Renk.ToList()[0].Resim" class="bd-placeholder-img card-img-top" style="width:100%" /></a>
+                            <div class="card-body">
+                                <p style="height:50px" class="card-text">@item.Urun.Ad</p>
+                                <p>@item.Urun.Fiyat</p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+</main>
+
+
+
+

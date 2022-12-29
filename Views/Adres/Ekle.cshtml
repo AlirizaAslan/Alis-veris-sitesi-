@@ -1,0 +1,37 @@
+﻿@model Adres
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ekle</h2>
+
+@using (Html.BeginForm("Ekle", "Adres", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Sehir)
+        @Html.TextBoxFor(m => m.Sehir, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ilce)
+        @Html.TextBoxFor(m => m.Ilce, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cadde_Sokak)
+        @Html.TextBoxFor(m => m.Cadde_Sokak, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Numara)
+        @Html.TextBoxFor(m => m.Numara, new { @class = "form-control" })
+
+    </div>
+    <br />
+    <button class="btn btn-info">Ekle</button>
+
+
+
+}
+

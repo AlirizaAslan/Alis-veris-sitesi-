@@ -1,0 +1,42 @@
+﻿@model Adres
+@{
+    ViewBag.Title = "GuncelleGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Guncelle</h2>
+
+@using (Html.BeginForm("GuncellePost", "Adres", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Sehir)
+        @Html.TextBoxFor(m => m.Sehir, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ilce)
+        @Html.TextBoxFor(m => m.Ilce, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cadde_Sokak)
+        @Html.TextBoxFor(m => m.Cadde_Sokak, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Numara)
+        @Html.TextBoxFor(m => m.Numara, new { @class = "form-control" })
+
+    </div>
+
+    <br />
+    @Html.HiddenFor(m => m.AdresID)
+    <button type="submit" class="btn btn-warning">Güncelle</button>
+
+
+
+}
+
+
+
+

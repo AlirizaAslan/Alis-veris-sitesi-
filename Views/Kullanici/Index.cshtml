@@ -1,0 +1,95 @@
+﻿@model DBMS.ViewModels.KullaniciViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Profilim</h2>
+
+<table class="table" id="tblHesap">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Sifre</th>
+        <th>Yetki</th>
+        <th>Güncelle</th>
+        <th>Hesabı Sil</th>
+    </tr>
+    <tr>
+        <td>@Model.Kullanici.Ad</td>
+        <td>@Model.Kullanici.Soyad</td>
+        <td>@Model.Kullanici.Sifre</td>
+        <td>
+            Normal Kullanıcı
+        </td>
+        <td><a class="btn btn-warning" href="/Kullanici/GuncelleGet/@Model.Kullanici.KullaniciID">Güncelle</a></td>
+        <td><a class="btn btn-danger btnHesapSil" data-id="@Model.Kullanici.KullaniciID">Hesabımı Sil</a></td>
+    </tr>
+</table>
+
+<h4 class="mt-5">Adreslerim</h4>
+
+<table class="table">
+    <tr>
+        <th>Şehir</th>
+        <th>İlçe</th>
+        <th>Cadde/Sokak</th>
+        <th>Numara</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model.Adresler)
+    {
+        <tr>
+            <td>@item.Sehir</td>
+            <td>@item.Ilce</td>
+            <td>@item.Cadde_Sokak</td>
+            <td>@item.Numara</td>
+            <td><a class="btn btn-warning" href="/Adres/Guncelle/@item.AdresID">Güncelle</a></td>
+            <td><a class="btn btn-danger" href="/Adres/Sil/@item.AdresID">Sil</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Adres/Ekle" class="btn btn-success">Ekle</a>
+
+
+
+<h4 class="mt-5">Emaillerim</h4>
+
+<table class="table">
+    <tr>
+        <th>Email</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var item in Model.Emailler)
+    {
+        <tr>
+            <td>@item.Email1</td>
+            <td>
+               
+                    @using (Html.BeginForm("Sil", "Email", FormMethod.Post))
+                    {
+                        <div style="display:none" class="form-group">
+                            @Html.Label("Email")
+                            <input class="form-control" type="text" name="email" value="@item.Email1" />
+
+                        </div>
+
+                        <button style="display:inline" class="btn btn-danger">Sil</button>
+                    }
+                
+
+                
+
+
+
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="/Email/Ekle" class="btn btn-success">Ekle</a>
+
+<div style="padding-top:300px"></div>

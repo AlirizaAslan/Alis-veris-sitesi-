@@ -1,0 +1,39 @@
+﻿@model List<FisUrun>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_YoneticiLayout.cshtml";
+}
+
+
+<main role="main">
+
+
+
+
+	<table class="table">
+		<tr>
+			<th>Yorum Sahibi</th>
+			<th>Yorum</th>
+			<th>Sil</th>
+		</tr>
+		@foreach (var item in Model)
+		{
+			if (item.Yorum != null)
+			{
+				<tr>
+					<td>@item.Fis.Kullanici.Ad @item.Fis.Kullanici.Soyad</td>
+					<td>@item.Yorum</td>
+					<td><a class="btn btn-danger" href="/Yonetici/YorumSil/@item.FisUrunID">Sil</a></td>
+				</tr>
+			}
+
+		}
+	</table>
+
+</main>
+
+
+
+
+
+

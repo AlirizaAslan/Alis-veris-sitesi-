@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adres">
+    <Key>
+      <PropertyRef Name="AdresID" />
+    </Key>
+    <Property Name="AdresID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sehir" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Ilce" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cadde_Sokak" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Numara" Type="int" Nullable="false" />
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Beden">
+    <Key>
+      <PropertyRef Name="BarkodNo" />
+      <PropertyRef Name="Beden" />
+    </Key>
+    <Property Name="BarkodNo" Type="int" Nullable="false" />
+    <Property Name="Beden" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Favoriler">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+      <PropertyRef Name="BarkodNo" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+    <Property Name="BarkodNo" Type="int" Nullable="false" />
+    <Property Name="Tarih" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Fis">
+    <Key>
+      <PropertyRef Name="FisID" />
+    </Key>
+    <Property Name="FisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ToplamTutar" Type="decimal" Precision="15" Scale="6" Nullable="false" />
+    <Property Name="İndirimliOdenenTutar" Type="decimal" Precision="15" Scale="6" Nullable="false" />
+    <Property Name="KrediKartiNo" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="Tarih" Type="smalldatetime" Nullable="false" />
+    <Property Name="Sehir" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Ilce" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cadde_Sokak" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Numara" Type="int" Nullable="false" />
+    <Property Name="IletisimMaili" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FisUrun">
+    <Key>
+      <PropertyRef Name="FisUrunID" />
+    </Key>
+    <Property Name="FisID" Type="int" Nullable="false" />
+    <Property Name="BarkodNo" Type="int" Nullable="false" />
+    <Property Name="Miktar" Type="int" Nullable="false" />
+    <Property Name="IadeDurumu" Type="bit" Nullable="false" />
+    <Property Name="Yorum" Type="nvarchar(max)" />
+    <Property Name="Resim" Type="nvarchar" MaxLength="100" />
+    <Property Name="FisUrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KrediKarti">
+    <Key>
+      <PropertyRef Name="KrediKarti" />
+    </Key>
+    <Property Name="KrediKarti" Type="decimal" Precision="16" Scale="0" Nullable="false" />
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Yetki" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Musteri">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+    <Property Name="Bakiye" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="Puan" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Renk">
+    <Key>
+      <PropertyRef Name="BarkodNo" />
+      <PropertyRef Name="Renk" />
+    </Key>
+    <Property Name="BarkodNo" Type="int" Nullable="false" />
+    <Property Name="Renk" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Resim" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sepet">
+    <Key>
+      <PropertyRef Name="SepetID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+    <Property Name="SepetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Miktar" Type="int" Nullable="false" />
+    <Property Name="BarkodNo" Type="int" Nullable="false" />
+    <Property Name="Renk" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Beden" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sube">
+    <Key>
+      <PropertyRef Name="SubeID" />
+    </Key>
+    <Property Name="SubeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sehir" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Ilce" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Cadde_Sokak" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostaKodu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urun">
+    <Key>
+      <PropertyRef Name="BarkodNo" />
+    </Key>
+    <Property Name="BarkodNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fiyat" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="Cinsiyet" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Kategori" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SatisSayisi" Type="smallint" Nullable="false" />
+    <Property Name="Malzeme" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Dış" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Açıklama" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EklenmeTarihi" Type="smalldatetime" />
+    <Property Name="IadeMiktari" Type="int" />
+    <Property Name="YasAraligi" Type="nvarchar" MaxLength="50" />
+    <Property Name="FavoriSayisi" Type="int" />
+  </EntityType>
+  <EntityType Name="UrunDetay">
+    <Key>
+      <PropertyRef Name="BarkodNo" />
+    </Key>
+    <Property Name="BarkodNo" Type="int" Nullable="false" />
+    <Property Name="CantaFlag" Type="bit" Nullable="false" />
+    <Property Name="Sap" Type="nvarchar" MaxLength="20" />
+    <Property Name="AnaMalzeme" Type="nvarchar" MaxLength="20" />
+    <Property Name="UzunAski" Type="nvarchar" MaxLength="20" />
+    <Property Name="Yükseklik" Type="smallint" />
+    <Property Name="Genislik" Type="smallint" />
+    <Property Name="Derinlik" Type="smallint" />
+    <Property Name="AyakkabiFlag" Type="bit" Nullable="false" />
+    <Property Name="Ust" Type="nvarchar" MaxLength="20" />
+    <Property Name="Taban" Type="nvarchar" MaxLength="20" />
+    <Property Name="IcTaban" Type="nvarchar" MaxLength="20" />
+    <Property Name="Dil" Type="nvarchar" MaxLength="20" />
+    <Property Name="CocukFlag" Type="bit" Nullable="false" />
+    <Property Name="YasAraligi" Type="nvarchar" MaxLength="20" />
+    <Property Name="CocukCinsiyet" Type="nvarchar" MaxLength="20" />
+    <Property Name="DolguluFlag" Type="bit" Nullable="false" />
+    <Property Name="Dolgu" Type="nvarchar" MaxLength="30" />
+    <Property Name="SusluFlag" Type="bit" Nullable="false" />
+    <Property Name="Susler" Type="nvarchar" MaxLength="30" />
+    <Property Name="FonKumasFlag" Type="bit" Nullable="false" />
+    <Property Name="FonKumas" Type="nvarchar" MaxLength="30" />
+    <Property Name="Kaplama" Type="nvarchar" MaxLength="30" />
+    <Property Name="IkincilTekstilFlag" Type="bit" Nullable="false" />
+    <Property Name="DisAnaKumas" Type="nvarchar" MaxLength="30" />
+    <Property Name="IkincilTekstil" Type="nvarchar" MaxLength="30" />
+    <Property Name="AstarFlag" Type="bit" Nullable="false" />
+    <Property Name="Astar" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK_Adres_Musteri">
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Adres" Type="Self.Adres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteri">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Adres">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Beden_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Beden" Type="Self.Beden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="BarkodNo" />
+      </Principal>
+      <Dependent Role="Beden">
+        <PropertyRef Name="BarkodNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Email_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Email" Type="Self.Email" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favoriler_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Favoriler" Type="Self.Favoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Favoriler">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favoriler_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Favoriler" Type="Self.Favoriler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="BarkodNo" />
+      </Principal>
+      <Dependent Role="Favoriler">
+        <PropertyRef Name="BarkodNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fis_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Fis" Type="Self.Fis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Fis">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FisUrun_Fis">
+    <End Role="Fis" Type="Self.Fis" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FisUrun" Type="Self.FisUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fis">
+        <PropertyRef Name="FisID" />
+      </Principal>
+      <Dependent Role="FisUrun">
+        <PropertyRef Name="FisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FisUrun_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FisUrun" Type="Self.FisUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="BarkodNo" />
+      </Principal>
+      <Dependent Role="FisUrun">
+        <PropertyRef Name="BarkodNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KrediKarti_Musteri">
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="KrediKarti" Type="Self.KrediKarti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteri">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="KrediKarti">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Musteri_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Musteri" Type="Self.Musteri" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Musteri">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Renk_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Renk" Type="Self.Renk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="BarkodNo" />
+      </Principal>
+      <Dependent Role="Renk">
+        <PropertyRef Name="BarkodNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sepet_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Sepet">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sepet_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="BarkodNo" />
+      </Principal>
+      <Dependent Role="Sepet">
+        <PropertyRef Name="BarkodNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UrunDetay_Urun">
+    <End Role="Urun" Type="Self.Urun" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UrunDetay" Type="Self.UrunDetay" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="BarkodNo" />
+      </Principal>
+      <Dependent Role="UrunDetay">
+        <PropertyRef Name="BarkodNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Beden" EntityType="Self.Beden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email" EntityType="Self.Email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Favoriler" EntityType="Self.Favoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fis" EntityType="Self.Fis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FisUrun" EntityType="Self.FisUrun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KrediKarti" EntityType="Self.KrediKarti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Renk" EntityType="Self.Renk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sube" EntityType="Self.Sube" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunDetay" EntityType="Self.UrunDetay" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Adres_Musteri" Association="Self.FK_Adres_Musteri">
+      <End Role="Musteri" EntitySet="Musteri" />
+      <End Role="Adres" EntitySet="Adres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Beden_Urun" Association="Self.FK_Beden_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="Beden" EntitySet="Beden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Email_Kullanici" Association="Self.FK_Email_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Email" EntitySet="Email" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favoriler_Kullanici" Association="Self.FK_Favoriler_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Favoriler" EntitySet="Favoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favoriler_Urun" Association="Self.FK_Favoriler_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="Favoriler" EntitySet="Favoriler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fis_Kullanici" Association="Self.FK_Fis_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Fis" EntitySet="Fis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FisUrun_Fis" Association="Self.FK_FisUrun_Fis">
+      <End Role="Fis" EntitySet="Fis" />
+      <End Role="FisUrun" EntitySet="FisUrun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FisUrun_Urun" Association="Self.FK_FisUrun_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="FisUrun" EntitySet="FisUrun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KrediKarti_Musteri" Association="Self.FK_KrediKarti_Musteri">
+      <End Role="Musteri" EntitySet="Musteri" />
+      <End Role="KrediKarti" EntitySet="KrediKarti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Musteri_Kullanici" Association="Self.FK_Musteri_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Musteri" EntitySet="Musteri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Renk_Urun" Association="Self.FK_Renk_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="Renk" EntitySet="Renk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sepet_Kullanici" Association="Self.FK_Sepet_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="Sepet" EntitySet="Sepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sepet_Urun" Association="Self.FK_Sepet_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="Sepet" EntitySet="Sepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UrunDetay_Urun" Association="Self.FK_UrunDetay_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="UrunDetay" EntitySet="UrunDetay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

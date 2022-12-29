@@ -1,0 +1,48 @@
+﻿@model List<FisUrun>
+@{
+    ViewBag.Title = "UrunListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ürün Listesi</h2>
+<table class="table">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Barkod Numarası</th>
+        <th>Miktar</th>
+        <th>İade Durumu</th>
+        <th>Yorum</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Urun.Ad</td>
+            <td>@item.BarkodNo</td>
+            <td>@item.Miktar</td>
+            <td>
+                @if (item.IadeDurumu == true)
+                {
+
+                    <span>İade Edildi.</span>
+                }
+                else
+                {
+                    <a href="/Siparis/IadeEt/@item.FisUrunID" class="btn btn-danger">İade Et</a>
+                }
+
+            </td>
+            <td>
+                @if (item.Yorum == null)
+                {
+                    <a href="/Siparis/YorumYap/@item.FisUrunID" class="btn btn-warning">Yorum Yap</a>
+                }
+                else
+                {
+                    <a href="/Siparis/YorumGuncelle/@item.FisUrunID" class="btn btn-warning">Yorumu Güncelle</a>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+

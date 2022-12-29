@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "KrediKartiEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>KrediKartiEkle</h2>
+
+@using (Html.BeginForm("KrediKartiEkle", "Kullanici", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kredi Kartı Numarası")
+        <input class="form-control" type="text" name="KrediKartiNo" />
+
+    </div>
+    <br />
+    <button type="submit" class="btn btn-warning">Ekle</button>
+}

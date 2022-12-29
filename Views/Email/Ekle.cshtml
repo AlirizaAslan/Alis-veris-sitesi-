@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ekle</h2>
+
+@using (Html.BeginForm("Ekle", "Email", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Email")
+        <input class="form-control" type="text" name="email" />
+
+    </div>
+    <br />
+    <button type="submit" class="btn btn-warning">Ekle</button>
+}

@@ -1,0 +1,15 @@
+﻿@model int
+@{
+    ViewBag.Title = "YorumYap";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Yap</h2>
+<form action="YorumYap" method="post">
+    <label>Yorum</label>
+    <textarea class="form-control" name="yorum" rows="3"></textarea>
+    <input style="display:none" type="text" name="id" value="@Model" />
+    <br />
+    <button class="btn btn-success">Gönder</button>
+</form>
+

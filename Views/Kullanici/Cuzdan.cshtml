@@ -1,0 +1,60 @@
+﻿@model DBMS.ViewModels.CuzdanViewModel
+@{
+    ViewBag.Title = "Cuzdan";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cüzdanım</h2>
+
+<table class="table table-light">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Bakiye</th>
+        <th>Puan</th>
+    </tr>
+    <tr>
+
+        <td>@Model.Kullanici.Ad</td>
+        <td>@Model.Kullanici.Soyad</td>
+        <td>@Model.Musteri.Bakiye</td>
+        <td>@Model.Musteri.Puan</td>
+
+    </tr>
+
+</table>
+<br />
+<h4>Kredi Kartlarım</h4>
+
+<table class="table table-light">
+    <tr>
+        <th>Kredi Kartı Numarası</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var item in Model.KrediKartlari)
+    {
+        <tr>
+            <td>@item.KrediKarti1</td>
+            <td>
+                @using (Html.BeginForm("KrediKartiSil", "Kullanici", FormMethod.Post))
+                {
+                    <div style="display:none" class="form-group">
+                       
+                        <input class="form-control" type="text" name="KrediKartiNo" value="@item.KrediKarti1" />
+
+                    </div>
+
+                    <button style="display:inline" class="btn btn-danger">Sil</button>
+                }
+
+            </td>
+        </tr>
+    }
+
+
+</table>
+<a class="btn btn-success" href="/Kullanici/KrediKartiEkle">Ekle</a>
+
+
+

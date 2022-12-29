@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+                        <h3 class="text-center text-info">Login</h3>
+                        @if (ViewBag.mesaj != null)
+                        {
+                            <div class="alert alert-primary" role="alert">@ViewBag.mesaj</div>
+
+                        }
+                        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                        {
+
+                            <div class="form-group">
+                                <label class="text-info">
+                                    Email
+                                </label>
+                                <input type="text" name="Email" class="form-control" />
+
+                            </div>
+                            <div class="form-group">
+                                <label class="text-info">
+                                    Şifre
+                                </label>
+                                <input type="text" name="Sifre" class="form-control" />
+
+                            </div>
+                           
+                                <button class="btn btn-info">Giriş Yap</button>
+                                <a class="text-info" style="position:absolute;right:10px;margin:10px" href="/Login/KayitOl">Kayıt Ol</a>
+                               
+                           
+                            
+
+                        }
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
+

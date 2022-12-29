@@ -1,0 +1,81 @@
+﻿@model List<Urun> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<main role="main">
+   
+
+
+
+
+    <div class="album py-5 bg-light pt-3" id="tbl">
+        <div class="container">
+            @using (Html.BeginForm("Arama", "Urun", FormMethod.Post))
+            {
+            <div class="form-group mt-2 mb-3 ">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="mt-2">
+                            <label>
+                                <input type="radio" name="tercih" value="true" checked />Barkod İle Arama
+                            </label>
+
+
+                            <label class="ms-4">
+                                <input type="radio" name="tercih" value="false" />Kelime İle Arama
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+
+                        <input class="form-control" type="text" name="m" />
+
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success">Ara</button>
+                    </div>
+                    <label style="visibility:hidden">
+                        <input type="text" name="KategoriAd" value="@ViewBag.kategori" />
+                    </label>
+                    <label style="visibility:hidden">
+                        <input type="text" name="Cinsiyet" value="@ViewBag.cinsiyet" />
+                    </label>
+
+                </div>
+            </div>
+            
+               
+
+            }
+        
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm">
+
+                            <a href="/Urun/UrunGoruntule/@item.BarkodNo"><img src="@item.Renk.ToList()[0].Resim" class="bd-placeholder-img card-img-top" style="width:100%" /></a>
+                            <div class="card-body">
+                                <p style="height:50px" class="card-text">@item.Ad</p>
+                                <p>@item.Fiyat</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
